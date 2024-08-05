@@ -32,7 +32,7 @@ function mainMenu(){
             break;
         case 3:
             listarResidencia();
-            index = parseInt(prompt('Número do contato a atualizar: ')) - 1;
+            index = parseInt(prompt('Número da residência a atualizar: ')) - 1;
             const novoNomeMorador = prompt("Novo nome morador(a): ");
             const novoNomeRua = prompt("Novo nome da rua: ");
             const novoNumero = prompt("Novo número: ");
@@ -42,7 +42,7 @@ function mainMenu(){
             mainMenu();
             break;
         case 4: 
-            index = parseInt(prompt("Número do contato a remover: ")) - 1;
+            index = parseInt(prompt("Número do residência a remover: ")) - 1;
             removerResidencia(index);
             console.log("Residência removida com sucesso! ");
             mainMenu();
