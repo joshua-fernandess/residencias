@@ -50,10 +50,12 @@ function mainMenu(){
         case 5:
             console.log("Saindo do sistema. Até breve!");
             process.exit();
+            break;
         default: 
             console.log("\n Opção inválida");
+            mainMenu();
             
-    }
+    };
 };
 
 mainMenu();
