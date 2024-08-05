@@ -42,7 +42,7 @@ function mainMenu(){
             mainMenu();
             break;
         case 4: 
-            index = parseInt(prompt("Número do residência a remover: ")) - 1;
+            index = parseInt(prompt("Número da residência a remover: ")) - 1;
             removerResidencia(index);
             console.log("Residência removida com sucesso! ");
             mainMenu();
