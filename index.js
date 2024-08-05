@@ -6,11 +6,13 @@ const removerResidencia = require('./remover.js');
 
 function mainMenu(){
     console.log(`
+    ────────── Menu ────────────────────────
     1. Criar residência
     2. Listar residências
     3. Atualizar residência
     4. Remover residência
-    5. Sair `);
+    5. Sair 
+    ────────────────────────────────────────`);
 
     let opcao = parseInt(prompt(`Digite a opção desejada: `));
     let index;
