@@ -22,7 +22,12 @@ function mainMenu(){
             const nomeRua = prompt("Nome da rua: ");
             const numero = prompt("Número: ");
             const nomeBairro = prompt("Nome do Bairro: ");
-            criarResidencia({nomeMorador, nomeRua, numero, nomeBairro});
+            const telefones = [];
+            let telefone;
+            while((telefone = prompt('Telefone: (ou deixe em branco para sair)'))){
+                telefones.push(telefone);
+            }
+            criarResidencia({nomeMorador, nomeRua, numero, nomeBairro, telefones});
             console.log("Residência criada com sucesso!");
             mainMenu();
             break;
@@ -37,7 +42,12 @@ function mainMenu(){
             const novoNomeRua = prompt("Novo nome da rua: ");
             const novoNumero = prompt("Novo número: ");
             const novoNomeBairro = prompt("Novo nome do bairro: ");
-            atualizarResidencia(index, {nomeMorador: novoNomeMorador, nomeRua: novoNomeRua, numero:novoNumero, nomeBairro: novoNomeBairro});
+            const novoTelefones = [];
+            let novoTelefone;
+            while ((novoTelefone = prompt('Telefone (ou deixe em branco para sair)'))){
+                novoTelefones.push(novoTelefone);
+            }
+            atualizarResidencia(index, {nomeMorador: novoNomeMorador, nomeRua: novoNomeRua, numero:novoNumero, nomeBairro: novoNomeBairro, telefones: novoTelefones});
             console.log("Residência atualizada com sucesso!");
             mainMenu();
             break;
