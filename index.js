@@ -1,4 +1,5 @@
 const prompt = require('prompt-sync')();
+
 const criarResidencia = require('./criar.js');
 const listarResidencia = require('./listar.js');
 const atualizarResidencia = require('./atualizar.js');
@@ -15,20 +16,21 @@ function mainMenu(){
     ────────────────────────────────────────`);
 
     let opcao = parseInt(prompt(`Digite a opção desejada: `));
-    let index;
+    
     switch(opcao){
         case 1:
-            const nomeMorador = prompt("Nome morador(a): ");
-            const nomeRua = prompt("Nome da rua: ");
+            const morador = prompt("Nome morador(a): ");
+            const rua = prompt("Rua: ");
             const numero = prompt("Número: ");
-            const nomeBairro = prompt("Nome do Bairro: ");
+            const bairro = prompt("Bairro: ");
             const telefones = [];
             let telefone;
-            while((telefone = prompt('Telefone: (ou deixe em branco para sair)'))){
+            while((telefone = prompt('Telefones: (ou deixe em branco para sair)'))){
                 telefones.push(telefone);
             }
-            criarResidencia({nomeMorador, nomeRua, numero, nomeBairro, telefones});
-            console.log("Residência criada com sucesso!");
+
+            criarResidencia({morador, rua, numero, bairro, telefones});
+            console.log("Residência cadastrada com sucesso!");
             mainMenu();
             break;
         case 2:
@@ -37,23 +39,23 @@ function mainMenu(){
             break;
         case 3:
             listarResidencia();
-            index = parseInt(prompt('Número da residência a atualizar: ')) - 1;
-            const novoNomeMorador = prompt("Novo nome morador(a): ");
-            const novoNomeRua = prompt("Novo nome da rua: ");
+            id = parseInt(prompt('Número da residência a atualizar: '));
+            const novoMorador = prompt("Novo morador(a): ");
+            const novaRua = prompt("Nova rua: ");
             const novoNumero = prompt("Novo número: ");
-            const novoNomeBairro = prompt("Novo nome do bairro: ");
+            const novoBairro = prompt("Novo bairro: ");
             const novoTelefones = [];
             let novoTelefone;
-            while ((novoTelefone = prompt('Telefone (ou deixe em branco para sair)'))){
+            while ((novoTelefone = prompt('Telefones (ou deixe em branco para sair)'))){
                 novoTelefones.push(novoTelefone);
             }
-            atualizarResidencia(index, {nomeMorador: novoNomeMorador, nomeRua: novoNomeRua, numero:novoNumero, nomeBairro: novoNomeBairro, telefones: novoTelefones});
+            atualizarResidencia(id, {morador: novoMorador, rua: novaRua, numero:novoNumero, bairro: novoBairro, telefones: novoTelefones});
             console.log("Residência atualizada com sucesso!");
             mainMenu();
             break;
         case 4: 
-            index = parseInt(prompt("Número da residência a remover: ")) - 1;
-            removerResidencia(index);
+            id = parseInt(prompt("Número da residência a remover: "));
+            removerResidencia(id);
             console.log("Residência removida com sucesso! ");
             mainMenu();
             break;
@@ -62,7 +64,7 @@ function mainMenu(){
             process.exit();
             break;
         default: 
-            console.log("\n Opção inválida");
+            throw new Error("\n Opção inválida");
             mainMenu();
             
     };

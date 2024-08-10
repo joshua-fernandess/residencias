@@ -1,5 +1,5 @@
 module.exports = [
-    {nomeMorador: 'Maria', nomeRua: 'Rua Coronel Cláudio', numero: '123', nomeBairro: 'Centro', telefones: [98765-4321]},
-    {nomeMorador: 'Carlos', nomeRua: 'Rua Engenheiro Schraam', numero:'456', nomeBairro:'Olárias', telefones:[12345-6789]},
-    {nomeMorador: 'Beatriz', nomeRua: 'Avenida Vicente Machado', numero:'718', nomeBairro: 'Centro', telefones:[67890-1234]}
+    {id: 1, morador: 'Maria', rua: 'Rua Coronel Cláudio', numero: '123', bairro: 'Centro', telefones: [987654321, 876458745]},
+    {id: 2, morador: 'Carlos', rua: 'Rua Engenheiro Schraam', numero:'456', bairro:'Olárias', telefones:[123456789]},
+    {id: 3, morador: 'Beatriz', rua: 'Avenida Vicente Machado', numero:'718', bairro: 'Centro', telefones:[678901234]}
 ];
